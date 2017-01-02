@@ -1,0 +1,56 @@
+body, div, a {
+    padding:0;
+    margin:0;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  *zoom: 1;
+}
+
+#calculator {
+	background-color: #991188;
+	width: 360px;
+	height: 460px;
+	padding: 0.25%;
+}
+
+#total {
+    width: 97%;
+    height: 1.5em;
+    margin: 1%;
+    background-color:white;
+    text-align: right;
+    padding:1%;
+    font-size: 3em;
+    border-radius: .16em;
+}
+
+#keys a {
+    display: block;
+    width: 19%;
+    height: 1.5em;
+    float: left;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    text-align: center;
+    font-size: 2em;
+    margin: 0.5%;
+    border-radius: .16em;
+    cursor: pointer;
+}
+
+a:hover{
+    background: -webkit-gradient(linear, left top, left bottom, from(#DCDCDC), to(#EDEDED));
+    background: -moz-linear-gradient(top,  #DCDCDC,  #EDEDED);
+/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DCDCDC', endColorstr='#EDEDED'); */
+}
