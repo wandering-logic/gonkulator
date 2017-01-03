@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	    clearTimeout(myTimer);
 	});
 	key.addEventListener("mouseup", function(){
+	    clearTimeout(myTimer);
 	    number += this.textContent;
 	    if (shiftKey) { number += "x"; }
 	    totaldiv.textContent = number;
