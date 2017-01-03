@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var keysList = document.getElementsByClassName('digit');
     for (var i = 0; i < keysList.length; i++) {
 	var key = keysList[i];
-	key.addEventListener("onmousedown", function(){
+	key.addEventListener("mousedown", function(){
 	    alert("down");
 /*	    window.navigator.vibrate(30);
 	    myTimer = setTimeout(function(){
@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function(){
 		window.navigator.vibrate(20);
 	    }, 500); */
 	});
-	key.addEventListener("onmouseleave", function(){
+	key.addEventListener("mouseleave", function(){
 	    alert("leave");
 /*	    clearTimeout(myTimer); */
 	});
-	key.addEventListener("onmouseup", function(){
+	key.addEventListener("mouseup", function(){
 	    alert("up");
 /*	    number += $(this).text();
 	    if (shiftKey) { number += "x"; }
