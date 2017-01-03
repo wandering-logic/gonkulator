@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-/*    var testNumLength = function(number) {
+    var testNumLength = function(number) {
         if (number.length > 9) {
             totaldiv.text(number.substr(number.length-9,9));
             if (number.length > 15) {
@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function(){
     var number = "";
     var newnumber = "";
     var operator = "";
-*/
     var totaldiv = document.getElementById('total');
     var shiftKey = false;
     var myTimer;
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	    clearTimeout(myTimer);
 	});
 	key.addEventListener("mouseup", function(){
-	    number += $(this).text();
+	    number += this.textContent;
 	    if (shiftKey) { number += "x"; }
 	    totaldiv.text(number);
 	    testNumLength(number);
