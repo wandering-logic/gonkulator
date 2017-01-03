@@ -15,21 +15,23 @@ document.addEventListener("DOMContentLoaded", function(){
     var shiftKey = false;
     var myTimer;
     totaldiv.textContent = '0';
-    document.getElementsByClassName('digit').addEventListener("onmousedown",
-							      	function(){
-	window.navigator.vibrate(30);
-	myTimer = setTimeout(function(){
-	    shiftKey = !shiftKey;
-	    window.navigator.vibrate(20);
-	}, 500);
-    }).addEventListener("onmouseleave", function(){
-	clearTimeout(myTimer);
-    }, false).addEventListener("onmouseup", function(){
-	number += $(this).text();
-	if (shiftKey) { number += "x"; }
-	totaldiv.text(number);
-	testNumLength(number);
-    });
+    var keysList = document.getElementsByClassName('digit');
+    for (var i = 0; i < keysList.length; i++) {
+	keysList[i].addEventListener("onmousedown", function(){
+	    window.navigator.vibrate(30);
+	    myTimer = setTimeout(function(){
+		shiftKey = !shiftKey;
+		window.navigator.vibrate(20);
+	    }, 500);
+	}).addEventListener("onmouseleave", function(){
+	    clearTimeout(myTimer);
+	}, false).addEventListener("onmouseup", function(){
+	    number += $(this).text();
+	    if (shiftKey) { number += "x"; }
+	    totaldiv.text(number);
+	    testNumLength(number);
+	});
+    }
 /*    $("#operators a").not("#equals").click(function(){
 	operator = $(this).text();
 	newnumber = number;
