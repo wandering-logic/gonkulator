@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var number = "";
     var newnumber = "";
     var operator = "";
-    var totaldiv = $("#total");
+    var totaldiv = document.getElementById('total);				 
     var shiftKey = false;
     var myTimer;
     totaldiv.text("0");
