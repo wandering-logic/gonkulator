@@ -20,23 +20,20 @@ document.addEventListener("DOMContentLoaded", function(){
     for (var i = 0; i < keysList.length; i++) {
 	var key = keysList[i];
 	key.addEventListener("mousedown", function(){
-	    alert("down");
-/*	    window.navigator.vibrate(30);
+	    window.navigator.vibrate(30);
 	    myTimer = setTimeout(function(){
 		shiftKey = !shiftKey;
 		window.navigator.vibrate(20);
-	    }, 500); */
+	    }, 500);
 	});
 	key.addEventListener("mouseleave", function(){
-	    alert("leave");
-/*	    clearTimeout(myTimer); */
+	    clearTimeout(myTimer);
 	});
 	key.addEventListener("mouseup", function(){
-	    alert("up");
-/*	    number += $(this).text();
+	    number += $(this).text();
 	    if (shiftKey) { number += "x"; }
 	    totaldiv.text(number);
-	    testNumLength(number);*/
+	    testNumLength(number);
 	});
     }
 /*    $("#operators a").not("#equals").click(function(){
