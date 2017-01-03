@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var totaldiv = document.getElementById('total');				 
     var shiftKey = false;
     var myTimer;
-    totaldiv.text("0");
+    totaldiv.textContent = '0';
     document.getElementsByClassName('digit').onmousedown(function(){
 	window.navigator.vibrate(30);
 	myTimer = setTimeout(function(){
