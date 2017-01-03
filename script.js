@@ -18,6 +18,7 @@ $(document).ready(function(){
     var totaldiv = $("#total");
     totaldiv.text("0");
     $(".digit").click(function(){
+	    window.navigator.vibrate(20);
 		number += $(this).text();
 		totaldiv.text(number);
 		testNumLength(number);
