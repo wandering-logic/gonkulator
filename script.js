@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    var testNumLength = function(number) {
+/*    var testNumLength = function(number) {
         if (number.length > 9) {
             totaldiv.text(number.substr(number.length-9,9));
             if (number.length > 15) {
@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function(){
     var number = "";
     var newnumber = "";
     var operator = "";
-    var totaldiv = document.getElementById('total');				 
+*/
+    var totaldiv = document.getElementById('total');
     var shiftKey = false;
     var myTimer;
     totaldiv.textContent = '0';
@@ -19,21 +20,24 @@ document.addEventListener("DOMContentLoaded", function(){
     for (var i = 0; i < keysList.length; i++) {
 	var key = keysList[i];
 	key.addEventListener("onmousedown", function(){
-	    window.navigator.vibrate(30);
+	    alert("down");
+/*	    window.navigator.vibrate(30);
 	    myTimer = setTimeout(function(){
 		shiftKey = !shiftKey;
 		window.navigator.vibrate(20);
-	    }, 500);
-	}, false);
+	    }, 500); */
+	});
 	key.addEventListener("onmouseleave", function(){
-	    clearTimeout(myTimer);
-	}, false);
+	    alert("leave");
+/*	    clearTimeout(myTimer); */
+	});
 	key.addEventListener("onmouseup", function(){
-	    number += $(this).text();
+	    alert("up");
+/*	    number += $(this).text();
 	    if (shiftKey) { number += "x"; }
 	    totaldiv.text(number);
-	    testNumLength(number);
-	}, false);
+	    testNumLength(number);*/
+	});
     }
 /*    $("#operators a").not("#equals").click(function(){
 	operator = $(this).text();
