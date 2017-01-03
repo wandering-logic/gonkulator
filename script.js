@@ -1,4 +1,4 @@
-$(document).ready(function(){
+document.addEventListener("DOMContentLoaded", function(){
     var testNumLength = function(number) {
         if (number.length > 9) {
             totaldiv.text(number.substr(number.length-9,9));
@@ -15,7 +15,7 @@ $(document).ready(function(){
     var shiftKey = false;
     var myTimer;
     totaldiv.text("0");
-    $(".digit").onmousedown(function(){
+    document.getElementsByClassName('digit').onmousedown(function(){
 	window.navigator.vibrate(30);
 	myTimer = setTimeout(function(){
 	    shiftKey = !shiftKey;
@@ -42,7 +42,7 @@ $(document).ready(function(){
 	    newnumber = "";
 	}
     }); */
-    $("#equals").click(function(){
+/*    $("#equals").click(function(){
 	if (operator === "+"){
 	    number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
 	} else if (operator === "-"){
@@ -57,5 +57,6 @@ $(document).ready(function(){
 	number = "";
 	newnumber = "";
     });
+*/
 });
 
