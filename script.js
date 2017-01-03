@@ -15,15 +15,16 @@ document.addEventListener("DOMContentLoaded", function(){
     var shiftKey = false;
     var myTimer;
     totaldiv.textContent = '0';
-    document.getElementsByClassName('digit').onmousedown(function(){
+    document.getElementsByClassName('digit').addEventListener("onmousedown",
+							      	function(){
 	window.navigator.vibrate(30);
 	myTimer = setTimeout(function(){
 	    shiftKey = !shiftKey;
 	    window.navigator.vibrate(20);
 	}, 500);
-    }).onmouseleave(function(){
+    }).addEventListener("onmouseleave", function(){
 	clearTimeout(myTimer);
-    }).onmouseup(function(){
+    }, false).addEventListener("onmouseup", function(){
 	number += $(this).text();
 	if (shiftKey) { number += "x"; }
 	totaldiv.text(number);
