@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     var testNumLength = function(number) {
         if (number.length > 9) {
-            totaldiv.textContext = number.substr(number.length-9,9);
+            totaldiv.textContent = number.substr(number.length-9,9);
             if (number.length > 15) {
                 number = "";
                 totaldiv.text("Err");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	key.addEventListener("mouseup", function(){
 	    number += this.textContent;
 	    if (shiftKey) { number += "x"; }
-	    totaldiv.textContext = number;
+	    totaldiv.textContent = number;
 	    testNumLength(number);
 	});
     }
