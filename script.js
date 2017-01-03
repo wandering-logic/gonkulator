@@ -17,20 +17,23 @@ document.addEventListener("DOMContentLoaded", function(){
     totaldiv.textContent = '0';
     var keysList = document.getElementsByClassName('digit');
     for (var i = 0; i < keysList.length; i++) {
-	keysList[i].addEventListener("onmousedown", function(){
+	var key = keysList[i];
+	key.addEventListener("onmousedown", function(){
 	    window.navigator.vibrate(30);
 	    myTimer = setTimeout(function(){
 		shiftKey = !shiftKey;
 		window.navigator.vibrate(20);
 	    }, 500);
-	}).addEventListener("onmouseleave", function(){
+	}, false);
+	key.addEventListener("onmouseleave", function(){
 	    clearTimeout(myTimer);
-	}, false).addEventListener("onmouseup", function(){
+	}, false);
+	key.addEventListener("onmouseup", function(){
 	    number += $(this).text();
 	    if (shiftKey) { number += "x"; }
 	    totaldiv.text(number);
 	    testNumLength(number);
-	});
+	}, false);
     }
 /*    $("#operators a").not("#equals").click(function(){
 	operator = $(this).text();
