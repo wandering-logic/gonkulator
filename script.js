@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	key.addEventListener("mouseup", function(){
 	    number += this.textContent;
 	    if (shiftKey) { number += "x"; }
-	    totaldiv.text(number);
+	    totaldiv.textContext = number;
 	    testNumLength(number);
 	});
     }
