@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", function(){
     for (var i = 0; i < keysList.length; i++) {
 	var key = keysList[i];
 	key.addEventListener("mousedown", function(){
-	    /* window.navigator.vibrate(30); */
-	    myTimer = setTimeout(function(){
+	    window.navigator.vibrate(30);
+	    /*myTimer = setTimeout(function(){
 		shiftKey = !shiftKey;
-		/* window.navigator.vibrate(20); */
-	    }, 500);
+		window.navigator.vibrate(20);
+	    }, 500); */
 	});
-	/*key.addEventListener("mouseleave", function(){
+	key.addEventListener("mouseleave", function(){
 	    clearTimeout(myTimer);
-	});*/
+	});
 	key.addEventListener("mouseup", function(){
 	    clearTimeout(myTimer);
 	    number += this.textContent;
