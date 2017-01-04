@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function(){
 		/* window.navigator.vibrate(20); */
 	    }, 500);
 	});
-	key.addEventListener("mouseleave", function(){
+	/*key.addEventListener("mouseleave", function(){
 	    clearTimeout(myTimer);
-	});
+	});*/
 	key.addEventListener("mouseup", function(){
 	    clearTimeout(myTimer);
 	    number += this.textContent;
