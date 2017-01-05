@@ -20,12 +20,13 @@ document.addEventListener("DOMContentLoaded", function(){
 	myKeyPressed = thisKey;
 	myTimer = setTimeout(function(){
 	    shiftKey = !shiftKey;
-	    window.navigator.vibrate(20);
-	}, 500);
-	window.navigator.vibrate(30);
+	    window.navigator.vibrate(30);
+	}, 750);
+	window.navigator.vibrate(40);
 	thisEvent.preventDefault();
     }
     keyLeave = function(thisKey, thisEvent) {
+	myKeyPressed = null;
 	clearTimeout(myTimer);
 	thisEvent.preventDefault();
     }
