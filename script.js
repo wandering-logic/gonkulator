@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	myKeyPressed = thisKey;
 	myTimer = setTimeout(function(){
 	    shiftKey = !shiftKey;
+	    console.log("doink!");
 	    window.navigator.vibrate(30);
 	}, 750);
 	window.navigator.vibrate(40);
@@ -44,30 +45,39 @@ document.addEventListener("DOMContentLoaded", function(){
     for (var i = 0; i < keysList.length; i++) {
 	var key = keysList[i];
 	key.addEventListener("pointerdown", function(thisEvent){
+	    console.log("pointerdown: ", this.textContent);
 	    keyPress(this, thisEvent);
 	});
 	key.addEventListener("pointerleave", function(thisEvent){
+	    console.log("pointerleave: ", this.textContent);
 	    keyLeave(this, thisEvent);
 	});
 	key.addEventListener("pointerup", function(thisEvent){
+	    console.log("pointerup: ", this.textContent);
 	    keyRelease(this, thisEvent);
 	});
-	key.addEventListener("touchstart", function(thisEvent){
+/*	key.addEventListener("touchstart", function(thisEvent){
+	    console.log("touchstart: ", this.textContent);
 	    keyPress(this, thisEvent);
 	});
 	key.addEventListener("touchleave", function(thisEvent){
+	    console.log("touchleave: ", this.textContent);
 	    keyLeave(this, thisEvent);
 	});
 	key.addEventListener("touchend", function(thisEvent){
+	    console.log("touchend: ", this.textContent);
 	    keyRelease(this, thisEvent);
-	});
+	}); */
 	key.addEventListener("mousedown", function(thisEvent){
+	    console.log("mousedown: ", this.textContent);
 	    keyPress(this, thisEvent);
 	});
 	key.addEventListener("mouseleave", function(thisEvent){
+	    console.log("mouseleave: ", this.textContent);
 	    keyLeave(this, thisEvent);
 	});
 	key.addEventListener("mouseup", function(thisEvent){
+	    console.log("mouseup: ", this.textContent);
 	    keyRelease(this, thisEvent);
 	});
     }
