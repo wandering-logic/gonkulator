@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
-    var testNumLength = function(number) {
-        if (number.length > 9) {
-            totaldiv.textContent = number.substr(number.length-9,9);
-            if (number.length > 15) {
-                number = "";
-                totaldiv.text("Err");
-            }
-        } 
+    var shiftOut = function(value) {
+        if (value.length > 9) {
+            return (value.substr(value.length-9,9));
+	}
+	else {
+	    return (value);
+	}
     };
     var number = "";
     var newnumber = "";
@@ -14,28 +13,64 @@ document.addEventListener("DOMContentLoaded", function(){
     var totaldiv = document.getElementById('total');
     var shiftKey = false;
     var myTimer;
+    var myKeyPressed = null;
     totaldiv.textContent = '0';
-    var keysList = document.getElementsByClassName('digit');
+    var keysList = document.getElementsByClassName('ckey');
+    keyPress = function(thisKey, thisEvent) {
+	myKeyPressed = thisKey;
+	myTimer = setTimeout(function(){
+	    shiftKey = !shiftKey;
+	    window.navigator.vibrate(20);
+	}, 500);
+	window.navigator.vibrate(30);
+	thisEvent.preventDefault();
+    }
+    keyLeave = function(thisKey, thisEvent) {
+	clearTimeout(myTimer);
+	thisEvent.preventDefault();
+    }
+    keyRelease = function(thisKey, thisEvent) {
+	clearTimeout(myTimer);
+	if (thisKey === myKeyPressed) {
+	    var value = totaldiv.textContent;
+	    value += thisKey.textContent;
+	    if (shiftKey) { value += "x"; }
+	    shiftKey = false;
+	    totaldiv.textContent = shiftOut(value);
+	}
+	thisEvent.preventDefault();
+    }
     for (var i = 0; i < keysList.length; i++) {
 	var key = keysList[i];
-	key.addEventListener("mousedown", function(){
-	    window.navigator.vibrate(30);
-	    /*myTimer = setTimeout(function(){
-		shiftKey = !shiftKey;
-		window.navigator.vibrate(20);
-	    }, 500); */
+	key.addEventListener("pointerdown", function(thisEvent){
+	    keyPress(this, thisEvent);
 	});
-	key.addEventListener("mouseleave", function(){
-	    clearTimeout(myTimer);
+	key.addEventListener("pointerleave", function(thisEvent){
+	    keyLeave(this, thisEvent);
 	});
-	key.addEventListener("mouseup", function(){
-	    clearTimeout(myTimer);
-	    number += this.textContent;
-	    if (shiftKey) { number += "x"; }
-	    totaldiv.textContent = number;
-	    testNumLength(number);
+	key.addEventListener("pointerup", function(thisEvent){
+	    keyRelease(this, thisEvent);
+	});
+	key.addEventListener("touchstart", function(thisEvent){
+	    keyPress(this, thisEvent);
+	});
+	key.addEventListener("touchleave", function(thisEvent){
+	    keyLeave(this, thisEvent);
+	});
+	key.addEventListener("touchend", function(thisEvent){
+	    keyRelease(this, thisEvent);
+	});
+	key.addEventListener("mousedown", function(thisEvent){
+	    keyPress(this, thisEvent);
+	});
+	key.addEventListener("mouseleave", function(thisEvent){
+	    keyLeave(this, thisEvent);
+	});
+	key.addEventListener("mouseup", function(thisEvent){
+	    keyRelease(this, thisEvent);
 	});
     }
+});
 /*    $("#operators a").not("#equals").click(function(){
 	operator = $(this).text();
 	newnumber = number;
@@ -65,5 +100,4 @@ document.addEventListener("DOMContentLoaded", function(){
 	newnumber = "";
     });
 */
-});
 

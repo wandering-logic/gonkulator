@@ -3,8 +3,23 @@ body, div, a {
     margin:0;
     font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-a {
+
+.ckey {
     user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    display: block;
+    width: 19%;
+    height: 1.5em;
+    float: left;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0.5%;
+    border-radius: .16em;
+    cursor: pointer;
 }
 
 .group:before,
@@ -36,25 +51,3 @@ a {
     font-size: 3em;
     border-radius: .16em;
 }
-
-#keys a {
-    display: block;
-    width: 19%;
-    height: 1.5em;
-    float: left;
-    text-decoration: none;
-    color: black;
-    background-color: white;
-    text-align: center;
-    font-size: 2em;
-    margin: 0.5%;
-    border-radius: .16em;
-    cursor: pointer;
-}
-/*
-a:hover{
-    background: -webkit-gradient(linear, left top, left bottom, from(#DCDCDC), to(#EDEDED));
-    background: -moz-linear-gradient(top,  #DCDCDC,  #EDEDED);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DCDCDC', endColorstr='#EDEDED');
-}
-*/
