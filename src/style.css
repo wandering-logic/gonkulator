@@ -1,0 +1,52 @@
+body,
+div,
+a {
+  padding: 0;
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.ckey {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  display: block;
+  width: 19%;
+  height: 1.5em;
+  float: left;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0.5%;
+  border-radius: .16em;
+  cursor: pointer;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+
+#calculator {
+  background-color: #991188;
+  width: 360px;
+  height: 460px;
+  padding: 0.25%;
+}
+
+#total {
+  width: 97%;
+  height: 1.5em;
+  margin: 1%;
+  background-color: white;
+  text-align: right;
+  padding: 1%;
+  font-size: 3em;
+  border-radius: .16em;
+}
