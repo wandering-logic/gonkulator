@@ -57,14 +57,9 @@ function entryDigit(entry: NumberEntry, digit: string): NumberEntry {
   switch (entry.state) {
     case "int": {
       if (mantissaLen(entry) >= 12) return entry;
-      // Leading zero suppression: "0" + non-zero replaces
+      // Leading zero suppression: "0" is replaced by the next digit
       const intDigits =
-        entry.intDigits === "0" && digit !== "0"
-          ? digit
-          : // "0" + "0" stays "0"
-            entry.intDigits === "0" && digit === "0"
-            ? "0"
-            : entry.intDigits + digit;
+        entry.intDigits === "0" ? digit : entry.intDigits + digit;
       return { ...entry, intDigits };
     }
     case "frac": {
