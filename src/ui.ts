@@ -1,7 +1,7 @@
 import {
   type Calculator,
   createCalculator,
-  getDisplay,
+  formatEntry,
   pressKey,
   toggleShift,
 } from "./calculator";
@@ -16,7 +16,7 @@ export function initUI(): void {
   let myTimer: ReturnType<typeof setTimeout> | null = null;
   let myKeyPressed: HTMLElement | null = null;
 
-  totaldiv.textContent = calc.display;
+  totaldiv.textContent = formatEntry(calc.entry);
 
   const keysList = document.getElementsByClassName("ckey");
 
@@ -46,7 +46,7 @@ export function initUI(): void {
     if (thisKey === myKeyPressed) {
       const keyId = thisKey.id || thisKey.textContent?.trim() || "";
       calc = pressKey(calc, keyId);
-      totaldiv.textContent = getDisplay(calc.display);
+      totaldiv.textContent = formatEntry(calc.entry);
     }
     thisEvent.preventDefault();
   };
