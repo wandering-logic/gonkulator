@@ -2,6 +2,9 @@ import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
+  test: {
+    include: ["src/**/*.test.ts"],
+  },
   plugins: [
     VitePWA({
       registerType: "autoUpdate",
