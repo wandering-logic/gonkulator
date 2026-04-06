@@ -24,14 +24,13 @@ export function initUI(): void {
     myKeyPressed = thisKey;
     myTimer = setTimeout(() => {
       calc = toggleShift(calc);
-      console.log("doink!");
       window.navigator.vibrate(30);
     }, 750);
     window.navigator.vibrate(40);
     thisEvent.preventDefault();
   };
 
-  const keyLeave = (_thisKey: HTMLElement, thisEvent: Event): void => {
+  const keyLeave = (thisEvent: Event): void => {
     myKeyPressed = null;
     if (myTimer) {
       clearTimeout(myTimer);
@@ -55,32 +54,14 @@ export function initUI(): void {
     const key = keysList[i] as HTMLElement;
 
     key.addEventListener("pointerdown", function (this: HTMLElement, event) {
-      console.log("pointerdown: ", this.textContent);
       keyPress(this, event);
     });
 
     key.addEventListener("pointerleave", function (this: HTMLElement, event) {
-      console.log("pointerleave: ", this.textContent);
-      keyLeave(this, event);
+      keyLeave(event);
     });
 
     key.addEventListener("pointerup", function (this: HTMLElement, event) {
-      console.log("pointerup: ", this.textContent);
-      keyRelease(this, event);
-    });
-
-    key.addEventListener("mousedown", function (this: HTMLElement, event) {
-      console.log("mousedown: ", this.textContent);
-      keyPress(this, event);
-    });
-
-    key.addEventListener("mouseleave", function (this: HTMLElement, event) {
-      console.log("mouseleave: ", this.textContent);
-      keyLeave(this, event);
-    });
-
-    key.addEventListener("mouseup", function (this: HTMLElement, event) {
-      console.log("mouseup: ", this.textContent);
       keyRelease(this, event);
     });
   }

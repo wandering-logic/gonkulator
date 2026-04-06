@@ -27,7 +27,7 @@ Always keep code clean before commits:
 
 ## Architecture
 
-- **src/main.ts** - Calculator initialization and event handling (pointer/mouse events with long-press detection for shift key toggle)
+- **src/main.ts** - Calculator initialization and event handling (pointer events with long-press detection for shift key toggle)
 - **src/style.css** - Calculator styling (360x460px fixed layout)
 - **index.html** - Calculator UI with button grid (digits, operators, scientific functions)
 - **public/** - Static assets including PWA icons
