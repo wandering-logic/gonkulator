@@ -1,10 +1,33 @@
 import {
   type Calculator,
+  type NumberEntry,
   createCalculator,
-  formatEntry,
+  formatEntryParts,
   pressKey,
   toggleShift,
 } from "./calculator";
+
+function setupDisplay(el: HTMLElement): {
+  mantissa: HTMLSpanElement;
+  exponent: HTMLSpanElement;
+} {
+  const mantissa = document.createElement("span");
+  mantissa.id = "mantissa";
+  const exponent = document.createElement("span");
+  exponent.id = "exponent";
+  el.appendChild(mantissa);
+  el.appendChild(exponent);
+  return { mantissa, exponent };
+}
+
+function updateDisplay(
+  parts: { mantissa: HTMLElement; exponent: HTMLElement },
+  entry: NumberEntry,
+): void {
+  const fmt = formatEntryParts(entry);
+  parts.mantissa.textContent = fmt.mantissa;
+  parts.exponent.textContent = fmt.exponent ?? "";
+}
 
 export function initUI(): void {
   const totaldiv = document.getElementById("total");
@@ -12,11 +35,12 @@ export function initUI(): void {
     throw new Error("Could not find #total element");
   }
 
+  const display = setupDisplay(totaldiv);
   let calc: Calculator = createCalculator();
   let myTimer: ReturnType<typeof setTimeout> | null = null;
   let myKeyPressed: HTMLElement | null = null;
 
-  totaldiv.textContent = formatEntry(calc.entry);
+  updateDisplay(display, calc.entry);
 
   const keysList = document.getElementsByClassName("ckey");
 
@@ -45,7 +69,7 @@ export function initUI(): void {
     if (thisKey === myKeyPressed) {
       const keyId = thisKey.id || thisKey.textContent?.trim() || "";
       calc = pressKey(calc, keyId);
-      totaldiv.textContent = formatEntry(calc.entry);
+      updateDisplay(display, calc.entry);
     }
     thisEvent.preventDefault();
   };
@@ -80,7 +104,7 @@ export function initUI(): void {
     if (keyId) {
       event.preventDefault();
       calc = pressKey(calc, keyId);
-      totaldiv.textContent = formatEntry(calc.entry);
+      updateDisplay(display, calc.entry);
     }
   });
 

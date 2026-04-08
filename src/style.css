@@ -45,8 +45,23 @@ a {
   height: 1.5em;
   margin: 1%;
   background-color: white;
-  text-align: right;
   padding: 1%;
-  font-size: 3em;
+  font-size: 2.3em;
   border-radius: .16em;
+  display: flex;
+  align-items: flex-start;
+}
+
+#mantissa {
+  flex: 1;
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#exponent {
+  width: 4.5ch;
+  font-size: 0.6em;
+  text-align: right;
+  flex-shrink: 0;
 }

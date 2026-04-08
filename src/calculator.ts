@@ -134,6 +134,25 @@ export function formatEntry(entry: NumberEntry): string {
   return result;
 }
 
+export function formatEntryParts(entry: NumberEntry): {
+  mantissa: string;
+  exponent?: string;
+} {
+  let mantissa = "";
+  if (entry.negative) mantissa += "-";
+  mantissa += entry.intDigits || "0";
+  if (entry.state === "frac" || entry.fracDigits !== "") {
+    mantissa += `.${entry.fracDigits}`;
+  }
+  if (entry.state === "exp") {
+    let exp = "";
+    if (entry.expNegative) exp += "-";
+    exp += entry.expDigits || "0";
+    return { mantissa, exponent: exp };
+  }
+  return { mantissa };
+}
+
 export function pressKey(calc: Calculator, key: string): Calculator {
   return {
     entry: entryPressKey(calc.entry, key),
