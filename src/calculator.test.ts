@@ -145,8 +145,8 @@ describe("digit limits", () => {
     expect(type(...keys, "3")).toBe("123.456789012");
   });
 
-  it("limits exponent to 3 digits", () => {
-    expect(type("1", "ee", "1", "2", "3", "4")).toBe("1 123");
+  it("slides exponent digits when a 4th digit is entered", () => {
+    expect(type("1", "ee", "1", "2", "3", "4")).toBe("1 234");
   });
 });
 

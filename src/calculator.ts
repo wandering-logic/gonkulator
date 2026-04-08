@@ -67,8 +67,8 @@ function entryDigit(entry: NumberEntry, digit: string): NumberEntry {
       return { ...entry, fracDigits: entry.fracDigits + digit };
     }
     case "exp": {
-      if (entry.expDigits.length >= 3) return entry;
-      return { ...entry, expDigits: entry.expDigits + digit };
+      const expDigits = (entry.expDigits + digit).slice(-3);
+      return { ...entry, expDigits };
     }
   }
 }

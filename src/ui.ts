@@ -50,6 +50,40 @@ export function initUI(): void {
     thisEvent.preventDefault();
   };
 
+  const keyMap: Record<string, string> = {
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
+    ".": "dot",
+    "+": "plus",
+    "-": "minus",
+    "*": "times",
+    "/": "divby",
+    "^": "pow",
+    "(": "lparen",
+    ")": "rparen",
+    Enter: "equals",
+    "=": "equals",
+    Backspace: "del",
+    Escape: "clear",
+  };
+
+  document.addEventListener("keydown", (event) => {
+    const keyId = keyMap[event.key];
+    if (keyId) {
+      event.preventDefault();
+      calc = pressKey(calc, keyId);
+      totaldiv.textContent = formatEntry(calc.entry);
+    }
+  });
+
   for (let i = 0; i < keysList.length; i++) {
     const key = keysList[i] as HTMLElement;
 
