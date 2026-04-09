@@ -1,55 +1,71 @@
-body,
+html,
+body {
+  height: 100dvh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #991188;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
 div,
 a {
   padding: 0;
   margin: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-family: inherit;
 }
 
 .ckey {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  display: block;
-  width: 19%;
-  height: 1.5em;
-  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: black;
   background-color: white;
-  text-align: center;
-  font-size: 1.5em;
-  margin: 0.5%;
-  border-radius: .16em;
+  font-size: clamp(1rem, 4.5vw, 1.5rem);
+  border-radius: 0.16em;
   cursor: pointer;
-}
-
-.group:before,
-.group:after {
-  content: "";
-  display: table;
-}
-.group:after {
-  clear: both;
 }
 
 #calculator {
   background-color: #991188;
-  width: 360px;
-  height: 460px;
-  padding: 0.25%;
+  width: 100vw;
+  height: 100dvh;
+  max-width: 400px;
+  max-height: 520px;
+  padding: 0.5%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+#keys {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 0.5%;
 }
 
 #total {
-  width: 97%;
-  height: 1.5em;
+  width: auto;
   margin: 1%;
   background-color: white;
-  padding: 1%;
-  font-size: 2.3em;
-  border-radius: .16em;
+  padding: 1% 2%;
+  font-size: clamp(1.5rem, 6vw, 2.3rem);
+  border-radius: 0.16em;
   display: flex;
   align-items: flex-start;
+  flex-shrink: 0;
 }
 
 #mantissa {
